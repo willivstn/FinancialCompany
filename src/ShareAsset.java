@@ -1,4 +1,4 @@
-public class ShareAsset {
+public abstract class ShareAsset implements Asset {
 
     //This is redundant coding
 
@@ -8,8 +8,8 @@ public class ShareAsset {
 
     public ShareAsset(String symbol, double totalCost) {
         this.symbol = symbol;
-        this.totalCost = totalCost;
         this.currentPrice = currentPrice;
+        totalCost = 0.0;
     }
 
     //adds a cost of the given amount of this asset
@@ -28,5 +28,14 @@ public class ShareAsset {
 
     public void setCurrentPrice(double currentPrice) {
         this.currentPrice = currentPrice;
+    }
+
+    //returns current market value of this asset
+    public abstract double getMarketValue();
+
+    //return the profit earned on shares of this asset
+    public double getProfit(){
+        // calls an abstract getMarketValue method
+        return getMarketValue() -totalCost;
     }
 }

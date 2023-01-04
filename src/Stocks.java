@@ -1,4 +1,4 @@
-public class Stocks extends ShareAsset implements Asset{
+public class Stocks extends ShareAsset{
     private int totalShares;
 
     public Stocks(String symbol, double currentPrice) {
@@ -12,10 +12,6 @@ public class Stocks extends ShareAsset implements Asset{
         return totalShares*getCurrentPrice();
     }
 
-    @Override
-    public double getProfit() {
-        return getMarketValue() - getTotalCost();
-    }
 
     public int getTotalShares() {
         return totalShares;
